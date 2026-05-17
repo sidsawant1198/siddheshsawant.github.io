@@ -420,9 +420,29 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 860px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { gap: 1.5rem; }
-  #hero { grid-template-columns: 1fr; }
+  nav { padding: 1rem; 
+    flex-direction: column; /* Stacks the logo "Siddhesh." above your navigation links */
+    gap: 0.8rem;
+    align-items: center; }
+  .nav-links { gap: 1.2rem; 
+    width: 100%;
+    justify-content: center;
+    overflow-x: auto;       /* Enables horizontal swipe control if layout screen is tiny */
+    white-space: nowrap;    /* Keeps links from forcing a broken line break */
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch; /* Smoothes scrolling physics on iOS */ }
+  /* Hides distracting default scrollbar styling during a mobile finger-swipe */
+  .nav-links::-webkit-scrollbar {
+    display: none; }
+  .nav-links a {
+    font-size: 11px;        /* Tighter font scaling layout for standard smartphones */
+    letter-spacing: 1px; }
+  /* Adjusts the top padding layout so your stacked navigation doesn't block hero elements */
+  #hero { 
+    grid-template-columns: 1fr; 
+    padding-top: 120px; 
+  }
+  /* Keep all the remaining rules inside your media query exactly as they are */
   .hero-left { padding: 5rem 1.5rem 3rem; }
   .hero-left::after { display: none; }
   .hero-right { padding: 3rem 1.5rem; }
